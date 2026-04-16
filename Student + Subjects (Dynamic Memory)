@@ -1,0 +1,50 @@
+
+#include <iostream>
+using namespace std;
+
+struct Subject {
+    string name;
+    int marks;
+};
+
+class Student {
+    int roll;
+    string name;
+    Subject* subjects;
+    int n;
+
+public:
+    Student(int num) {
+        n = num;
+        subjects = new Subject[n];
+    }
+
+    void input() {
+        cin >> roll >> name;
+        for(int i = 0; i < n; i++)
+            cin >> subjects[i].name >> subjects[i].marks;
+    }
+
+    int total() {
+        int sum = 0;
+        for(int i = 0; i < n; i++)
+            sum += subjects[i].marks;
+        return sum;
+    }
+
+    void display() {
+        cout << name << " Total: " << total() << endl;
+    }
+
+    ~Student() {
+        delete[] subjects;
+    }
+};
+
+int main() {
+    int n = 2;
+    Student s1(n);
+
+    s1.input();
+    s1.display();
+}
