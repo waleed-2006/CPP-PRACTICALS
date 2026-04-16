@@ -1,0 +1,45 @@
+
+#include <iostream>
+using namespace std;
+
+struct Course {
+    string code;
+    string name;
+    int credits;
+};
+
+class Student {
+    string name;
+    Course* courses;
+    int n;
+
+public:
+    Student(int num) {
+        n = num;
+        courses = new Course[n];
+    }
+
+    void input() {
+        cin >> name;
+        for(int i = 0; i < n; i++)
+            cin >> courses[i].code >> courses[i].name >> courses[i].credits;
+    }
+
+    void totalCredits() {
+        int sum = 0;
+        for(int i = 0; i < n; i++)
+            sum += courses[i].credits;
+
+        cout << "Credits: " << sum;
+    }
+
+    ~Student() {
+        delete[] courses;
+    }
+};
+
+int main() {
+    Student s(2);
+    s.input();
+    s.totalCredits();
+}
