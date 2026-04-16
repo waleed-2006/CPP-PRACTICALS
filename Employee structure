@@ -1,0 +1,25 @@
+
+#include <iostream>
+using namespace std;
+
+struct Employee {
+    int id;
+    string name;
+    float basic;
+};
+
+int main() {
+    Employee e;
+    cout << "enter ID: ";
+    cin >> e.id;
+    cout << "enter Name: ";
+    cin >> e.name;
+    cout << "enter basic salary: ";
+    cin>> e.basic;
+
+    float hra = 0.2 * e.basic;
+    float da = 0.1 * e.basic;
+    float gross = e.basic + hra + da;
+
+    cout << "Gross Salary: " << gross;
+}
