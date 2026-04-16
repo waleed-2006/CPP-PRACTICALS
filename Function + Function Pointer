@@ -1,0 +1,16 @@
+
+#include <iostream>
+using namespace std;
+
+int square(int x) {
+    return x * x;
+}
+
+int main() {
+    cout << square(5) << endl;
+
+    int (*ptr)(int) = square;
+    cout << ptr(5) << endl;
+
+    return 0;
+}
