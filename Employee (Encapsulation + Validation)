@@ -1,0 +1,25 @@
+
+#include <iostream>
+using namespace std;
+
+class Employee {
+    double salary;
+
+public:
+    void setSalary(double s) {
+        if(s >= 0)
+            salary = s;
+        else
+            cout << "Invalid salary\n";
+    }
+
+    double getSalary() {
+        return salary;
+    }
+};
+
+int main() {
+    Employee e;
+    e.setSalary(5000);
+    cout << e.getSalary();
+}
