@@ -1,0 +1,37 @@
+
+#include <iostream>
+using namespace std;
+
+struct Transaction {
+    string type;
+    double amount;
+    string date;
+    Transaction* next;
+};
+
+class BankAccount {
+    int accNo;
+    double balance;
+    Transaction* history;
+
+public:
+    BankAccount(int a) {
+        accNo = a;
+        balance = 0;
+        history = NULL;
+    }
+
+    void deposit(double amt) {
+        balance += amt;
+    }
+
+    void showBalance() {
+        cout << balance << endl;
+    }
+};
+
+int main() {
+    BankAccount b(101);
+    b.deposit(1000);
+    b.showBalance();
+}
