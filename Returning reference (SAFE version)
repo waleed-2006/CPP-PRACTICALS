@@ -1,0 +1,15 @@
+
+#include <iostream>
+using namespace std;
+
+int& getValue() {
+    static int x = 10; // safe
+    return x;
+}
+
+int main() {
+    int& ref = getValue();
+    ref = 50;
+
+    cout << getValue(); // 50
+}
