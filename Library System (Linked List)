@@ -1,0 +1,37 @@
+
+#include <iostream>
+using namespace std;
+
+struct BookNode {
+    int id;
+    string title;
+    string author;
+    bool issued;
+    BookNode* next;
+};
+
+class Library {
+    BookNode* head;
+
+public:
+    Library() { head = NULL; }
+
+    void addBook(int id, string title, string author) {
+        BookNode* b = new BookNode{id,title,author,false,head};
+        head = b;
+    }
+
+    void displayAll() {
+        BookNode* temp = head;
+        while(temp) {
+            cout << temp->title << endl;
+            temp = temp->next;
+        }
+    }
+};
+
+int main() {
+    Library lib;
+    lib.addBook(1,"C++","Bjarne");
+    lib.displayAll();
+}
