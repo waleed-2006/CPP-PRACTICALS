@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int globalVar = 10;
+
+int main() {
+    int localVar = 20;
+    int* dynamicVar = new int(30);
+
+    cout << "Global Address: " << &globalVar << endl;
+    cout << "Local Address: " << &localVar << endl;
+    cout << "Dynamic Address: " << dynamicVar << endl;
+
+    delete dynamicVar;
+    return 0;
+}
