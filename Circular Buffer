@@ -1,0 +1,32 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int size = 5;
+    int* buffer = new int[size];
+
+    int front = 0, rear = -1, count = 0;
+
+    // enqueue
+    for(int i = 1; i <= 5; i++) {
+        if(count == size) {
+            cout << "Overflow\n";
+            break;
+        }
+        rear = (rear + 1) % size;
+        buffer[rear] = i;
+        count++;
+    }
+
+    // dequeue
+    if(count == 0)
+        cout << "Underflow\n";
+    else {
+        cout << "Removed: " << buffer[front] << endl;
+        front = (front + 1) % size;
+        count--;
+    }
+
+    delete[] buffer;
+}
